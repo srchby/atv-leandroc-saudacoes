@@ -1,50 +1,25 @@
-# Welcome to your Expo app 👋
+# ETE PORTO DIGITAL 
+## P.N.T. (Mobile) - Letícia Queiroz
+### Leandro Cordeiro de Farias - 3º Ano B
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Crie um aplicativo simples que mostre uma saudação personalizada para o usuário. Pratique o uso de componentes, estados e interatividade em React Native.
 
-## Get started
+#### Obrigatório:
+1. Tela inicial: O app deve exibir uma saudação personalizada para o usuário, como por exemplo:
 
-1. Install dependencies
+    “Olá, [Nome do Usuário]!”
+    O nome do usuário deve ser inserido pelo próprio usuário por meio de um campo de texto.
+    Adicione uma função para limpar o campo de texto e a saudação através de um botão "Limpar"
+    Na saudação deve conter se é "Bom dia", "Boa tarde" e "Boa noite"
 
-   ```bash
-   npm install
-   ```
+2. O app deve ter um botão para atualizar a saudação e mostrar uma mensagem como:
 
-2. Start the app
+    “Bem-vindo(a) ao nosso App, [Nome do Usuário]!"
 
-   ```bash
-    npx expo start
-   ```
+3. Você deve modificar o estilo do app para tornar ele mais interessante. Quero ver cores, fontes, imagens, o que der.
 
-In the output, you'll find options to open the app in a
+Conceitos para aplicar:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+* useState: Para armazenar o nome inserido pelo usuário e a saudação.
+* TextInput: Para capturar o nome do usuário.
+* Button: Para atualizar a saudação.
