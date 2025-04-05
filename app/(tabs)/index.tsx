@@ -7,8 +7,10 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
-  const [text, setText] = useState('Nome de usuário');
+  const [inputText, setInputText] = useState('');
+  const [displayText, setDisplayText] = useState('Nome de usuário');
   const [timeGreeting, setTimeGreeting] = useState<string>('Olá');
+  const [showAlternateText, setShowAlternateText] = useState(false);
 
   useEffect(() => {
     const updateGreeting = () => {
@@ -23,21 +25,29 @@ export default function HomeScreen() {
       }
     };
 
-    // Update greeting immediately
     updateGreeting();
 
-    // Update greeting every minute to handle day changes
     const interval = setInterval(updateGreeting, 60000);
 
     return () => clearInterval(interval);
   }, []);
 
+  function handleSubmit() {
+    setDisplayText(inputText || 'Nome de usuário');
+    setInputText('');
+  }
+
   function handleChange(inputText: string) {
-    setText(inputText);
+    setInputText(inputText);
   }
 
   function handleClear() {
-    setText('');
+    setDisplayText('Nome de usuário');
+    setInputText('');
+  }
+
+  function toggleText() {
+    setShowAlternateText(!showAlternateText);
   }
 
   return (
@@ -50,21 +60,27 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Olá "{text}"! {timeGreeting}</ThemedText>
+        {showAlternateText ? (
+          <ThemedText type="title">Bem-vindo(a) ao nosso App, "{displayText}!"</ThemedText>
+        ) : (
+          <ThemedText type="title">Olá "{displayText}"! {timeGreeting}!</ThemedText>
+        )}
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <TextInput
           style={styles.input}
-          value={text}
+          value={inputText}
           onChangeText={handleChange}
           placeholder="Nome de usuário"
         />
+        <Button title='Atualizar' onPress={handleSubmit} />
         <Button
           title="Limpar"
           onPress={handleClear}
         />
       </ThemedView>
+      <Button title={showAlternateText ? "Voltar" : "Prosseguir"} onPress={toggleText} />
     </ParallaxScrollView>
   );
 }
